@@ -21,7 +21,8 @@ interface SidebarProps {
   onToggle?: () => void
 }
 
-export function Sidebar({ isCollapsed, onToggle }: SidebarProps) {
+
+export function Sidebar({ isCollapsed}: SidebarProps) {
   const [isMobile, setIsMobile] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   

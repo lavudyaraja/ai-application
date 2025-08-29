@@ -9,8 +9,8 @@ import { ChatPage } from '@/pages/ChatPage'
 import { LoginPage } from '@/pages/LoginPage'
 import { SettingsPage } from '@/pages/SettingsPage'
 import { KnowledgeExtractorPage } from '@/pages/KnowledgeExtractorPage'
-import { ResearchAssistantPage } from '@/pages/ResearchAssistantPage'
-import { CitationFormatterPage } from '@/pages/CitationFormatterPage'
+// import { ResearchAssistantPage } from '@/pages/ResearchAssistantPage'
+// import { CitationFormatterPage } from '@/pages/CitationFormatterPage'
 import { Toaster } from '@/components/ui/sonner'
 
 function App() {
@@ -27,8 +27,8 @@ function App() {
                     <Route path="/" element={<ChatPage />} />
                     <Route path="/settings" element={<SettingsPage />} />
                     <Route path="/knowledge-extractor" element={<KnowledgeExtractorPage />} />
-                    <Route path="/research-assistant" element={<ResearchAssistantPage />} />
-                    <Route path="/citation-formatter" element={<CitationFormatterPage />} />
+                    {/* <Route path="/research-assistant" element={<ResearchAssistantPage />} /> */}
+                    {/* <Route path="/citation-formatter" element={<CitationFormatterPage />} /> */}
                   </Route>
                 </Routes>
                 <Toaster />

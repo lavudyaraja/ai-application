@@ -1,11 +1,11 @@
 import { GoogleGenerativeAI, HarmCategory, HarmBlockThreshold } from "@google/generative-ai";
-import { YoutubeVideo, WebArticle } from "@/types/chat";
+// import { YoutubeVideo, WebArticle } from "@/types/chat";
 
 // Switched to a more reliable CORS proxy
 const CORS_PROXY = 'https://corsproxy.io/?';
 
 // Live implementation for YouTube search
-export async function searchYoutube(topic: string): Promise<YoutubeVideo[]> {
+export async function searchYoutube(topic: string) {
   const apiKey = import.meta.env.VITE_YOUTUBE_API_KEY;
 
   if (!apiKey || apiKey.includes('YOUR_API_KEY') || apiKey === 'API_KEY_ADDED') {
@@ -54,7 +54,7 @@ export async function searchYoutube(topic: string): Promise<YoutubeVideo[]> {
 }
 
 // Live implementation for Web search using SerpApi
-export async function searchWeb(topic: string): Promise<WebArticle[]> {
+export async function searchWeb(topic: string) {
   const apiKey = import.meta.env.VITE_SERPAPI_KEY;
 
   if (!apiKey || apiKey.includes('YOUR_API_KEY') || apiKey === 'API_KEY_ADDED') {
@@ -105,7 +105,7 @@ export async function searchWeb(topic: string): Promise<WebArticle[]> {
 // Function to generate summary using Gemini
 export async function generateTopicSummary(
   topic: string,
-  sources: { videos: YoutubeVideo[], articles: WebArticle[] },
+  // sources: { videos: YoutubeVideo[], articles: WebArticle[] },
   apiKey: string
 ): Promise<string> {
   const genAI = new GoogleGenerativeAI(apiKey);
@@ -119,20 +119,20 @@ export async function generateTopicSummary(
     ]
   });
 
-  const sourceInfo = `
-    YouTube Video Titles:
-    ${sources.videos.map(v => `- ${v.title}`).join('\n')}
+  // const sourceInfo = `
+  //   YouTube Video Titles:
+  //   ${sources.videos.map(v => `- ${v.title}`).join('\n')}
 
-    Web Article Titles and Snippets:
-    ${sources.articles.map(a => `- ${a.title}: ${a.snippet}`).join('\n')}
-  `;
+  //   Web Article Titles and Snippets:
+  //   ${sources.articles.map(a => `- ${a.title}: ${a.snippet}`).join('\n')}
+  // `;
 
   const prompt = `You are a research assistant. Based on the following topic and source materials, provide a concise, well-written summary (2-3 paragraphs) of the topic.
 
 Topic: ${topic}
 
 Source Materials (titles and snippets):
-${sourceInfo}
+
 
 Your Summary:
 `;
